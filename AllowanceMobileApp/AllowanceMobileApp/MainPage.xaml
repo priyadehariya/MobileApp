@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:model="clr-namespace:AllowanceMobileApp.Model" x:DataType="model:AllowanceMaster"
+             x:Class="AllowanceMobileApp.MainPage"
+               BackgroundColor="PapayaWhip"
+             >
+                
+
+    <StackLayout>
+        <Frame BackgroundColor="Blue" Padding="10" CornerRadius="0">
+            <Label Text="AllowanceApp-LogIn" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White" FontSize="26"/>
+        </Frame>
+       
+        <StackLayout Margin="25">
+            <Image Source="astorialogo.png" WidthRequest="125"></Image>
+        </StackLayout>
+
+            <StackLayout  Margin="30">
+            <Label Text="API URL :" FontSize="Medium" />
+            <Entry FontSize="Medium" WidthRequest="30"  Placeholder=""/>
+
+            <Label Text="UserID" FontSize="Medium"  FontAttributes="Bold"  />
+            <Entry x:Name="UserID" FontSize="Medium" WidthRequest="30"  Placeholder="....."  BackgroundColor="Gray" TextColor="White" FontAttributes="Bold"     />
+
+            <Label Text="Password" FontSize="Medium"  FontAttributes="Bold"  />
+            <Entry x:Name="Password" FontSize="Medium" WidthRequest="30"  Placeholder="......" IsPassword="True" BackgroundColor="Gray"  TextColor="White" FontAttributes="Bold"   />
+
+            <!--Arrange the multiple views in rows and columns, just like a table.-->
+            <Grid >
+                <Label Text="Remember me :"  FontSize="Medium" Margin="10"  FontAttributes="Bold"  />
+            <Switch IsToggled="False" ThumbColor="Blue" Margin="10"></Switch>
+                </Grid>
+
+           
+                
+            <Button x:Name="loginbtn" Text="Login" Clicked="Loginbtn_Clicked" HorizontalOptions="FillAndExpand" CornerRadius="20" Margin="10" BackgroundColor="Blue" WidthRequest="50" TextColor="White"></Button>
+
+            <Grid>
+                <Label  Text="Clear App Data :" FontSize="Medium" Margin="10"  FontAttributes="Bold"  />
+                <Button Text="Clear" HorizontalOptions="End" BackgroundColor="Red" Margin="8" CornerRadius="5" TextColor="White" FontAttributes="Bold" ></Button>
+ <!--x:Name is a xaml concept, used mainly to reference elements  
+                   The specified x:Name becomes the name of a field that is created in the 
+                underlying code when XAML is processed, and that field holds a reference to the object-->
+            </Grid>
+
+        </StackLayout>
+
+    </StackLayout>
+
+    
+    
+</ContentPage>

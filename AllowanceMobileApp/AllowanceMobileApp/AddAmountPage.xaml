@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:AllowanceMobileApp.ViewModel"
+             xmlns:AllowanceMobileApp="clr-namespace:AllowanceMobileApp.Model"
+             x:DataType="viewmodel:AllowanceViewModel"
+             x:Class="AllowanceMobileApp.AddAmountPage"
+               BackgroundColor="PapayaWhip"
+             >
+            
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Black" Padding="20" CornerRadius="0">
+                <Label  Text="Allowance App" HorizontalTextAlignment="Start" Margin="50,0,0,0" TextColor="White" FontSize="26" FontAttributes="Bold"/>
+            </Frame>
+            <Image Source="hexagon.png" Margin="0,-70,0,0" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" />
+
+            <StackLayout Margin="40">
+                <Label Text="Allowance" FontSize="Medium"  FontAttributes="Bold" TextColor="Black" />                                          <!--collection of data items-->
+                <Picker ItemsSource="{Binding allowances}"   ItemDisplayBinding="{Binding AllowanceName}" SelectedItem="{Binding SelectedAllowance}" FontAttributes="Bold"  BackgroundColor="Gray" TextColor="White" ></Picker>
+
+                <Label Text="Amount" FontSize="Medium"  FontAttributes="Bold" TextColor="Black" />
+                <Entry  FontSize="Medium" WidthRequest="30" Keyboard="Numeric" Placeholder="Select" Text="{Binding Amount}" BackgroundColor="Gray" TextColor="White" />
+
+            </StackLayout>
+
+            <Button  Text="Done"  HorizontalOptions="Center" CornerRadius="20" Margin="10" BackgroundColor="LightSkyBlue" FontAttributes="Bold" WidthRequest="160" Padding="0,0" Command="{Binding DoneCommand}"></Button>
+
+            <!--<StackLayout>
+                <CollectionView ItemsSource="{Binding EmplyeeItems, Mode=TwoWay}" SelectionMode="Multiple" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="10" x:DataType="AllowanceMobileApp:AllowanceMaster" Orientation="Horizontal">
+                                <CheckBox  IsChecked="{Binding IsSelect, Mode=TwoWay}" ></CheckBox>
+                                <Label  Text="{ Binding EmployeeName}" TextColor="Black"   FontAttributes="Bold" FontSize="20" ></Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>-->
+
+
+
+
+            <StackLayout>
+                <StackLayout WidthRequest="180" HeightRequest="80"  HorizontalOptions="StartAndExpand" >
+                   
+                        <Label Text="Select All"  FontSize="24" TextColor="DarkBlue" FontAttributes="Bold"  />
+                    <CheckBox x:DataType="AllowanceMobileApp:Employee" x:Name="SelectAll"  IsChecked="{Binding AllChecked}" CheckedChanged ="Checkbox_CheckedChanged" />
+
+                </StackLayout>
+                <!--<CheckBox x:Name="Select"/>-->
+                <RefreshView x:DataType="viewmodel:AllowanceViewModel">
+                    <CollectionView x:Name="CollectionView"  ItemsSource="{Binding EmplyeeItems,Mode=TwoWay}" SelectionMode="Multiple">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="10"  x:DataType="AllowanceMobileApp:Employee" Orientation="Horizontal" Margin="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <CheckBox x:Name="checkSelection" IsChecked="{Binding IsSelect,Mode=TwoWay}" Color="HotPink"/>
+                                    <Label Text="{Binding EmployeeName}" TextColor="Black" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllowanceMobileApp.AllowancePage"
+             BackgroundColor="PapayaWhip"
+             >
+             
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Black" Padding="20" CornerRadius="0">
+
+                <Label  Text="Allowance App" HorizontalTextAlignment="Start" Margin="50,0,0,0" TextColor="White" FontSize="26" FontAttributes="Bold"/>
+            </Frame>
+            <Image Source="hexagon.png" Margin="0,-70,0,0" HeightRequest="50"  WidthRequest="50" HorizontalOptions="Start" />
+
+
+            <StackLayout Margin="30" Background="red"  >
+
+                <Label Text="time" x:Name="time"  HeightRequest="80"  Background="red" FontSize="50" VerticalTextAlignment="Center" ></Label>
+
+            </StackLayout>
+
+            <StackLayout Background="Black"  Margin="30"  >
+
+              
+                <ImageButton Source="doller2.jpg"  Clicked="btn_Clicked"  BackgroundColor="Black" HeightRequest="100" >
+                    
+                </ImageButton>
+           
+            </StackLayout>
+            <Label  Text="Add Allowances" Margin="2,3,0,0" WidthRequest="250" HeightRequest="150" FontSize="30" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
